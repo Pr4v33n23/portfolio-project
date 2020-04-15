@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Praveen · Blog</title>
+    <title>{{blog.title}}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
@@ -16,14 +16,6 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
-    <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
-    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
-    <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#563d7c">
 
 
     <style>
@@ -35,7 +27,8 @@
             -ms-user-select: none;
             user-select: none;
         }
-        .logo-image{
+
+        .logo-image {
             width: 46px;
             height: 46px;
             border-radius: 60%;
@@ -75,7 +68,7 @@
                         <a class="nav-link" href="{%static 'resume.pdf'%}">Resume</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+                        <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
                     </li>
                 </ul>
             </div>
@@ -83,45 +76,13 @@
     </header>
 
     <main role="main">
-
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1>Hi, I'm Praveen</h1>
-                <p class="lead text-muted">
-                    Hello, My name is Praveen and I'm an Engineer at Mindtree. This is my personal blog where I started this website while learning Python with Django.
-                    So, basically I'm from Chennai currently living in Pune. I have 10 months of experience in IT industry.
-                    I'm a PC gamer, Football player, EDM composer. My interests are photography, videography, video editing.
-                    My hobbies are watching football, web-series in genre of sci-fi, action, adventure, dark and rom-com. I love coding and solving problems.
-                    I have really fallen in love with Python because of the way it has been treating me and looking forward to go deeper with it.
-
-
-                    It's really interesting!
-
-                </p>
-                <p>
-                    <a href="mailto:praveen.jaisankar@gmail.com"" class=" btn btn-primary my-2">Email me</a>
-                </p>
-                <img class="img-fluid" src="{% static 'LRM_EXPORT_8045546569684_20200315_184516206.jpeg'%}" height="250" width="200"/>
-            </div>
-        </section>
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <div class="row">
-
-                    {%for job in jobs.all %}
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <img class="card-img-top" src="{{job.image.url}}"/>
-                            <div class="card-body">
-                                <p class="card-text">{{job.summary}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    {%endfor%}
-                </div>
-            </div>
+        <div class="container">
+            <h1 class="text-center pt-3">{{blog.title}}</h1>
+            <p class="text-center">{{blog.pub_date}}</p>
+            <img class="img-fluid"src="{{blog.image.url}}">
+            <br/>
+            <br/> 
+            <p>{{blog.body}}</p>
         </div>
     </main>
 
